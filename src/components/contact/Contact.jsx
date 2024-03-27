@@ -2,10 +2,13 @@ import css from "./Contact.module.css";
 
 import { IoPersonSharp } from "react-icons/io5";
 import { BsTelephonePlusFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
 
-const Contact = ({ contact, deleteContact }) => {
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
   const handleDelete = () => {
-    deleteContact(contact.id);
+    dispatch(deleteContact(contact.id));
   };
   return (
     <div className={css.contactBox}>

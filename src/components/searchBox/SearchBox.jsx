@@ -1,8 +1,11 @@
+import { useDispatch } from "react-redux";
 import css from "./SearchBox.module.css";
+import { changeFilter } from "../../redux/filtersSlice";
 
-const SearchBox = ({ searchContact, setSearchContact }) => {
+const SearchBox = ({ searchContact }) => {
+  const dispatch = useDispatch();
   const handleChange = (e) => {
-    setSearchContact(e.target.value);
+    dispatch(changeFilter(e.target.value));
   };
 
   return (
